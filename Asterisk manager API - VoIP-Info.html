@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.voip-info.org/asterisk-manager-api/ -->
+<html lang="en-US" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="HandheldFriendly" content="true">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<script type="text/javascript" async="" src="./Asterisk manager API - VoIP-Info_files/f.txt"></script><script type="text/javascript" async="" src="./Asterisk manager API - VoIP-Info_files/analytics.js.download"></script><script src="./Asterisk manager API - VoIP-Info_files/jquery.min.js.download"></script>
+<title>Asterisk manager API - VoIP-Info</title>
+<script type="text/javascript">function ctSetCookie(c_name, value, def_value){document.cookie = c_name + '=' + escape(value) + '; path=/';}ctSetCookie('ct_checkjs', '925678868', '0');</script>
+
+<link rel="canonical" href="https://www.voip-info.org/asterisk-manager-api/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asterisk manager API - VoIP-Info">
+<meta property="og:description" content="The Asterisk Manager Interface (AMI) allows a client program to connect to an Asterisk instance and issue commands or read events over a TCP/IP stream. Integrators will find this particularly useful when trying to track the state of...">
+<meta property="og:url" content="https://www.voip-info.org/asterisk-manager-api/">
+<meta property="og:site_name" content="VoIP-Info">
+<meta property="article:section" content="Uncategorized">
+<meta property="article:published_time" content="2005-09-23T01:28:14+00:00">
+<meta property="article:modified_time" content="2019-01-24T08:32:18+00:00">
+<meta property="og:updated_time" content="2019-01-24T08:32:18+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The Asterisk Manager Interface (AMI) allows a client program to connect to an Asterisk instance and issue commands or read events over a TCP/IP stream. Integrators will find this particularly useful when trying to track the state of...">
+<meta name="twitter:title" content="Asterisk manager API - VoIP-Info">
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.voip-info.org/#website","url":"https://www.voip-info.org/","name":"VoIP-Info","potentialAction":{"@type":"SearchAction","target":"https://www.voip-info.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.voip-info.org/asterisk-manager-api/#webpage","url":"https://www.voip-info.org/asterisk-manager-api/","inLanguage":"en-US","name":"Asterisk manager API - VoIP-Info","isPartOf":{"@id":"https://www.voip-info.org/#website"},"datePublished":"2005-09-23T01:28:14+00:00","dateModified":"2019-01-24T08:32:18+00:00","author":{"@id":"https://www.voip-info.org/#/schema/person/3bc751716813e16b14e2bf058c4aeae6"}},{"@type":["Person"],"@id":"https://www.voip-info.org/#/schema/person/3bc751716813e16b14e2bf058c4aeae6","name":"VoIP Info","sameAs":[]}]}</script>
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="VoIP-Info » Feed" href="https://www.voip-info.org/feed/">
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.voip-info.org\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Asterisk manager API - VoIP-Info_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="vt-blogging-style-css" href="./Asterisk manager API - VoIP-Info_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="superfish-style-css" href="./Asterisk manager API - VoIP-Info_files/superfish.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-style-css" href="./Asterisk manager API - VoIP-Info_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="vt-blogging-fonts-css" href="./Asterisk manager API - VoIP-Info_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-style-css" href="./Asterisk manager API - VoIP-Info_files/responsive.css" type="text/css" media="all">
+<script>if (document.location.protocol != "https:") {document.location = document.URL.replace(/^http:/i, "https:");}</script><script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ctPublic = {"_ajax_nonce":"038c81bd9f","_ajax_url":"https:\/\/www.voip-info.org\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/apbct-public.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ctNocache = {"ajaxurl":"https:\/\/www.voip-info.org\/wp-admin\/admin-ajax.php","info_flag":"","set_cookies_flag":"","blog_home":"https:\/\/www.voip-info.org\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/cleantalk_nocache.min.js.download"></script>
+<link rel="https://api.w.org/" href="https://www.voip-info.org/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.voip-info.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.voip-info.org/wp-includes/wlwmanifest.xml">
+
+<style type="text/css" id="demo-custom-css">
+.sf-menu li:hover a, .sf-menu li.sfHover a,
+				.sf-menu li:hover li a:hover, .sf-menu li.sfHover li a:hover,
+				.content-loop .read-more a:link, .content-loop .read-more a:visited,
+				.content-loop .entry-title a:hover,
+				.entry-tags .tag-links a:hover::before,
+				.entry-tags .edit-link a,
+				.entry-related h3 span,
+				.author-box .author-meta .author-name a,
+				.entry-related .hentry .entry-title a:hover,
+				.sidebar .widget ul > li a:hover,
+				#site-bottom .site-info a{color:#c9c9c9;}.site-header{background-color:#06486e;}.pagination .page-numbers.current,
+				.pagination .nav-links > a:hover{background-color:#06486e;}
+</style>
+
+<style type="text/css" id="wp-custom-css">
+			.sf-menu {
+    float: right!important;
+}
+		</style>
+
+<script async="" src="./Asterisk manager API - VoIP-Info_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116938432-1');
+</script>
+
+<script async="" src="./Asterisk manager API - VoIP-Info_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1067337496');
+</script>
+<meta name="google-site-verification" content="XtOG5ot27GhunKABqVybB6IFgFhs0eu4MXTFBq2Kv2I">
+<script src="./Asterisk manager API - VoIP-Info_files/f(1).txt"></script></head>
+<body data-rsssl="1" class="post-template-default single single-post postid-361 single-format-standard wp-custom-logo group-blog">
+<div id="page" class="site">
+<header id="masthead" class="site-header clear">
+<div class="container">
+<div class="site-branding">
+<div id="logo">
+<span class="helper"></span>
+<a href="https://www.voip-info.org/" class="custom-logo-link" rel="home"><img width="203" height="48" src="./Asterisk manager API - VoIP-Info_files/logo-voip-info.webp" class="custom-logo" alt="VoIP-Info" srcset="https://www.voip-info.org/wp-content/uploads/2018/04/logo-voip-info.png 203w, https://www.voip-info.org/wp-content/uploads/2018/04/logo-voip-info-200x48.png 200w, https://www.voip-info.org/wp-content/uploads/2018/04/logo-voip-info-80x19.png 80w" sizes="(max-width: 203px) 100vw, 203px"></a> </div>
+</div>
+<nav id="primary-nav" class="main-navigation">
+<div class="menu-top-menu-container"><ul id="primary-menu" class="sf-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-70989" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-70989"><a href="https://www.voip-info.org/">Home</a></li>
+<li id="menu-item-78887" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-78887"><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul">Learn VoIP / SIP</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-78877" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78877"><a href="https://www.voip-info.org/voip-pbx-and-servers/">VoIP PBX and Servers</a></li>
+<li id="menu-item-78878" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78878"><a href="https://www.voip-info.org/voip-phones/">VoIP Phones</a></li>
+<li id="menu-item-78879" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78879"><a href="https://www.voip-info.org/what-is-voip/">What is VoIP</a></li>
+<li id="menu-item-78900" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78900"><a href="https://www.voip-info.org/sip/">About SIP</a></li>
+<li id="menu-item-78882" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78882"><a href="https://www.voip-info.org/pbx/">What is a PBX?</a></li>
+<li id="menu-item-71009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71009"><a target="_blank" rel="noopener noreferrer" href="https://www.3cx.com/3cxacademy/">Become a VoIP Expert</a></li>
+</ul>
+</li>
+<li id="menu-item-70993" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-70993"><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul">VoIP Trunk Providers</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-78888" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78888"><a href="https://www.voip-info.org/voip-service-providers-residential/">Residential VoIP Providers</a></li>
+<li id="menu-item-71012" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-71012"><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul">Wholesale VoIP</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-78890" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78890"><a href="https://www.voip-info.org/voip-termination/">Call Termination</a></li>
+<li id="menu-item-78891" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78891"><a href="https://www.voip-info.org/voip-origination/">Call Origination</a></li>
+<li id="menu-item-78892" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78892"><a href="https://www.voip-info.org/bulk-sms/">Bulk SMS</a></li>
+<li id="menu-item-78893" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78893"><a href="https://www.voip-info.org/did-service-providers/">DID Service Providers</a></li>
+</ul>
+</li>
+<li id="menu-item-78894" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78894"><a href="https://www.voip-info.org/voip-service-providers-business/">Business VoIP Providers</a></li>
+<li id="menu-item-78895" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78895"><a href="https://www.voip-info.org/voip-service-providers/">VoIP Service Providers</a></li>
+</ul>
+</li>
+<li id="menu-item-70994" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-70994"><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul">PBX Vendors</a>
+<ul class="sub-menu" style="display: none;">
+<li id="menu-item-78896" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78896"><a href="https://www.voip-info.org/3cx/">3CX</a></li>
+<li id="menu-item-78897" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78897"><a href="https://www.voip-info.org/asterisk/">Asterisk</a></li>
+<li id="menu-item-79805" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79805"><a href="https://www.voip-info.org/avaya/">Avaya</a></li>
+<li id="menu-item-79806" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79806"><a href="https://www.voip-info.org/cisco/">Cisco</a></li>
+<li id="menu-item-79807" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79807"><a href="https://www.voip-info.org/mitel/">Mitel</a></li>
+<li id="menu-item-78901" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78901"><a href="https://www.voip-info.org/hosted-pbx/">Hosted PBX</a></li>
+</ul>
+</li>
+<li id="menu-item-84357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84357"><a href="https://www.voip-info.org/community-pages/">Community Pages</a></li>
+</ul></div>
+</nav>
+<div id="slick-mobile-menu"><div class="slicknav_menu"><a href="https://www.voip-info.org/asterisk-manager-api/#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style=""><span class="slicknav_menutxt">Menu</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><ul class="slicknav_nav slicknav_hidden" style="touch-action: pan-y; display: none;" aria-hidden="true" role="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-70989"><a href="https://www.voip-info.org/" role="menuitem" tabindex="-1">Home</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-78887 slicknav_collapsed slicknav_parent"><a href="https://www.voip-info.org/asterisk-manager-api/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul" tabindex="-1">Learn VoIP / SIP</a>
+<span class="slicknav_arrow">►</span></a><ul class="sub-menu slicknav_hidden" style="display: none;" role="menu" aria-hidden="true">
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78877"><a href="https://www.voip-info.org/voip-pbx-and-servers/" role="menuitem" tabindex="-1">VoIP PBX and Servers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78878"><a href="https://www.voip-info.org/voip-phones/" role="menuitem" tabindex="-1">VoIP Phones</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78879"><a href="https://www.voip-info.org/what-is-voip/" role="menuitem" tabindex="-1">What is VoIP</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78900"><a href="https://www.voip-info.org/sip/" role="menuitem" tabindex="-1">About SIP</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78882"><a href="https://www.voip-info.org/pbx/" role="menuitem" tabindex="-1">What is a PBX?</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71009"><a target="_blank" rel="noopener noreferrer" href="https://www.3cx.com/3cxacademy/" role="menuitem" tabindex="-1">Become a VoIP Expert</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-70993 slicknav_collapsed slicknav_parent"><a href="https://www.voip-info.org/asterisk-manager-api/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul" tabindex="-1">VoIP Trunk Providers</a>
+<span class="slicknav_arrow">►</span></a><ul class="sub-menu slicknav_hidden" style="display: none;" role="menu" aria-hidden="true">
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78888"><a href="https://www.voip-info.org/voip-service-providers-residential/" role="menuitem" tabindex="-1">Residential VoIP Providers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-71012 slicknav_collapsed slicknav_parent"><a href="https://www.voip-info.org/asterisk-manager-api/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul" tabindex="-1">Wholesale VoIP</a>
+<span class="slicknav_arrow">►</span></a><ul class="sub-menu slicknav_hidden" style="display: none;" role="menu" aria-hidden="true">
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78890"><a href="https://www.voip-info.org/voip-termination/" role="menuitem" tabindex="-1">Call Termination</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78891"><a href="https://www.voip-info.org/voip-origination/" role="menuitem" tabindex="-1">Call Origination</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78892"><a href="https://www.voip-info.org/bulk-sms/" role="menuitem" tabindex="-1">Bulk SMS</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78893"><a href="https://www.voip-info.org/did-service-providers/" role="menuitem" tabindex="-1">DID Service Providers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78894"><a href="https://www.voip-info.org/voip-service-providers-business/" role="menuitem" tabindex="-1">Business VoIP Providers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78895"><a href="https://www.voip-info.org/voip-service-providers/" role="menuitem" tabindex="-1">VoIP Service Providers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-70994 slicknav_collapsed slicknav_parent"><a href="https://www.voip-info.org/asterisk-manager-api/#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style=""><a href="https://www.voip-info.org/asterisk-manager-api/#" class="sf-with-ul" tabindex="-1">PBX Vendors</a>
+<span class="slicknav_arrow">►</span></a><ul class="sub-menu slicknav_hidden" style="display: none;" role="menu" aria-hidden="true">
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78896"><a href="https://www.voip-info.org/3cx/" role="menuitem" tabindex="-1">3CX</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78897"><a href="https://www.voip-info.org/asterisk/" role="menuitem" tabindex="-1">Asterisk</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79805"><a href="https://www.voip-info.org/avaya/" role="menuitem" tabindex="-1">Avaya</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79806"><a href="https://www.voip-info.org/cisco/" role="menuitem" tabindex="-1">Cisco</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-79807"><a href="https://www.voip-info.org/mitel/" role="menuitem" tabindex="-1">Mitel</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78901"><a href="https://www.voip-info.org/hosted-pbx/" role="menuitem" tabindex="-1">Hosted PBX</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84357"><a href="https://www.voip-info.org/community-pages/" role="menuitem" tabindex="-1">Community Pages</a></li>
+</ul></div></div>
+</div>
+</header>
+<div id="content" class="site-content container clear">
+<div id="primary" class="content-area">
+<main id="main" class="site-main">
+<article id="post-361" class="post-361 post type-post status-publish format-standard hentry category-uncategorized">
+<header class="entry-header">
+<h1 class="entry-title">Asterisk manager API</h1>
+</header>
+<div class="entry-content">
+<p>The Asterisk Manager Interface (AMI) allows a client program to connect to an Asterisk instance and issue commands or read events over a TCP/IP stream. Integrators will find this particularly useful when trying to track the state of a telephony client inside Asterisk, and directing that client based on custom (and possibly dynamic) rules.</p>
+<p>A simple “key: value” line-based protocol is utilized for communication between the connecting client and the Asterisk PBX. Lines are terminated using CR/LF. For the sake of discussion below, we will use the term “packet” to describe a set of “key: value” lines that are terminated by an extra CR/LF.</p>
+<div class="maketoc">
+<h3>Page Contents</h3>
+<ul>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#ProtocolBehavior">Protocol Behavior</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#PacketTypes"> Packet Types</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#OpeningaManagerSessionandAuthenticatinga"> Opening a Manager Session and Authenticating as a User</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#ActionPackets">Action Packets</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#ManagerActions">Manager Actions</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#AsteriskEvents">Asterisk Events</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#ManagerExamples">Manager Examples</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#Authorizationforvariousclasses">Authorization for various classes</a></li>
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#Caveat">Caveat</a></li>
+
+<li><a href="https://www.voip-info.org/asterisk-manager-api/#Seealso">See also</a></li>
+</ul>
+</div>
+<p><strong>New in Asterisk 1.4:</strong> <a href="https://www.voip-info.org/asterisk-manager-api/Aynchronous+Javascript+Asterisk+Manager+%28AJAM%29">AJAM</a> is a new JavaScript-based technology which allows web browsers or other HTTP enabled applications and web pages to directly access the Asterisk Manager Interface (AMI) via HTTP.</p>
+<h2 id="ProtocolBehavior">Protocol Behavior</h2>
+<p>The protocol has the following characteristics:</p>
+<ul>
+<li>Before issuing commands to Asterisk, you must establish a manager session (see below).</li>
+<li>Packets may be transmitted in either direction at any time after authentication.</li>
+<li>The first line of a packet will have a key of “Action” when sent from the client to Asterisk, but “Event” or “Response” when sent from Asterisk to the client.</li>
+<li>The order of lines within a packet is insignificant, so you may use your favorite programming language’s native unordered dictionary type to efficiently store a single packet.</li>
+<li>CR/LF is used to delimit each line and a blank line (two CR/LF in a row) indicates the end of the command which Asterisk is now expected to process.</li>
+</ul>
+<p>&nbsp;</p>
+<h2 id="PacketTypes">Packet Types</h2>
+<p>The type of a packet is determined by the existence of one of the following keys:</p>
+<ul>
+<li><strong>Action</strong>: A packet sent by the connected client to Asterisk, requesting a particular Action be performed. There are a finite (but extendable) set of actions available to the client, determined by the modules presently loaded in the Asterisk engine. Only one action may be outstanding at a time. The Action packet contains the name of the operation to be performed as well as all required parameters.</li>
+<li><strong>Response</strong>: the response sent by Asterisk to the last action sent by the client.</li>
+<li><strong>Event</strong>: data pertaining to an event generated from within the Asterisk core or an extension module.</li>
+</ul>
+<p>Generally the client sends Action packets to the Asterisk server, the Asterisk server performs the requested operation and returns the result (often only success or failure) in a Response packet. As there is no guarantee regarding the order of Response packets the client usually includes an ActionID parameter in every Action packet that is sent back by Asterisk in the corresponding Response packet. That way the client can easily match Action and Response packets while sending Actions at any desired rate without having to wait for outstanding Response packets before sending the next action.</p>
+<p>Event packets are used in two different contexts: On the one hand they inform clients about state changes in Asterisk (like new channels being created and hung up or agents being logged in and out) on the other hand they are used to transport the response payload for actions that return a list of data (event generating actions). When a client sends an event generating action Asterisk sends a Response packed indicating success and containing a “Response: Follows” line. Then it sends zero or more events that contain the actual payload and finally an action complete event indicating that all data has been sent. The events sent in response to an event generating action and the action complete event contain the ActionID of the Action packet that triggered them, so you can easily match them the same way as Response packets. An example of an event generating action is the Status action that triggers Status events for each active channel. When all Status events have been sent a terminating a StatusComplete event is sent.</p>
+<h2 id="OpeningaManagerSessionandAuthenticatinga">Opening a Manager Session and Authenticating as a User</h2>
+<p>In order to access the Asterisk Manager functionality a user needs to establish a session by opening a TCP/IP connection to the listening port (usually 5038) of the Asterisk instance and logging into the manager using the ‘Login’ action. This requires a previously established user account on the Asterisk server. User accounts are configured in <strong><a title="Asterisk config manager.conf" href="https://www.voip-info.org/asterisk-config-managerconf">/etc/asterisk/manager.conf</a></strong>. A user account consists of a set of permitted IP hosts, an authentication secret (password), and a list of granted permissions.</p>
+<p>There is a finite set of permissions, each may be granted with either “read”, “write”, or “read/write” granularity. If a client is granted the ability to read a given class, Asterisk will send it events of that class. If a client is granted the ability to write a given class, it may send actions of that class.</p>
+<p>To login and authenticate to the manager, you must send a “<em>Login</em>” action, with your user name and secret (password) as parameters. Here is an example:</p>
+<p>Action: login<br>
+Username: admin<br>
+Secret: god</p>
+<p>If you do not need to subscribe to events being generated by Asterisk, you may also include the “Events: off” parameter, which will prevent event packets being sent to your connection. This is the equivalent of calling the “Events” action. Example:</p>
+<p>Action: login<br>
+Username: admin<br>
+Secret: god<br>
+Events: off</p>
+<h2 id="ActionPackets">Action Packets</h2>
+<p>When sending Asterisk an action, extra keys may be provided to further direct execution, for example, you may wish to specify a number to call, a channel to disconnect. Additionally, if your action causes Asterisk to execute an entry in the dialplan, you may wish to pass variables to the dialplan (available as of <a class="external" href="http://bugs.digium.com/bug_view_page.php?bug_id=0001268">bug 1268</a>). This is done exactly the same way you would send keys.</p>
+<p>To send Asterisk an action, follow this simple format:</p>
+<p>Action: &lt;<em>action type</em>&gt;&lt;<em>CRLF</em>&gt;<br>
+&lt;<em>Key 1</em>&gt;: &lt;<em>Value 1</em>&gt;&lt;<em>CRLF</em>&gt;<br>
+&lt;<em>Key 2</em>&gt;: &lt;<em>Value 2</em>&gt;&lt;<em>CRLF</em>&gt;<br>
+…<br>
+Variable: &lt;<em>Variable 1</em>&gt;=&lt;<em>Value 1</em>&gt;&lt;<em>CRLF</em>&gt;<br>
+Variable: &lt;<em>Variable 2</em>&gt;=&lt;<em>Value 2</em>&gt;&lt;<em>CRLF</em>&gt;<br>
+…<br>
+&lt;<em>CRLF</em>&gt;</p>
+<h2 id="ManagerActions">Manager Actions</h2>
+<p>Output from the <a title="Asterisk CLI" href="https://www.voip-info.org/asterisk-cli">Asterisk CLI</a> command <strong>manager show commands</strong>:<br>
+(For Asterisk 1.2 and earlier, use <strong>show manager commands</strong>)</p>
+<ul>
+<li><a title="Asterisk Manager API Action AbsoluteTimeout" href="https://www.voip-info.org/asterisk-manager-api-action-absolutetimeout">AbsoluteTimeout</a>: Set Absolute Timeout <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action ChangeMonitor" href="https://www.voip-info.org/asterisk-manager-api-action-changemonitor">ChangeMonitor</a>: Change monitoring filename of a channel <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Command" href="https://www.voip-info.org/asterisk-manager-api-action-command">Command</a>: Execute Command <strong>(privilege: command,all)</strong></li>
+<li><a title="Asterisk Manager API Action Events" href="https://www.voip-info.org/asterisk-manager-api-action-events">Events</a>: Control Event Flow</li>
+<li><a title="Asterisk Manager API Action ExtensionState" href="https://www.voip-info.org/asterisk-manager-api-action-extensionstate">ExtensionState</a>: Check Extension Status <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action GetVar" href="https://www.voip-info.org/asterisk-manager-api-action-getvar">GetVar</a>: Gets a Channel Variable <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Hangup" href="https://www.voip-info.org/asterisk-manager-api-action-hangup">Hangup</a>: Hangup Channel __(privilege: call,all)</li>
+<li><a title="Asterisk Manager API Action IAXpeers" href="https://www.voip-info.org/asterisk-manager-api-action-iaxpeers">IAXpeers</a>: List IAX Peers <strong>(privilege: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action ListCommands" href="https://www.voip-info.org/asterisk-manager-api-action-listcommands">ListCommands</a>: List available manager commands</li>
+<li><a title="Asterisk Manager API Action Logoff" href="https://www.voip-info.org/asterisk-manager-api-action-logoff">Logoff</a>: Logoff Manager</li>
+<li><a title="Asterisk Manager API Action MailboxCount" href="https://www.voip-info.org/asterisk-manager-api-action-mailboxcount">MailboxCount</a>: Check Mailbox Message Count <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action MailboxStatus" href="https://www.voip-info.org/asterisk-manager-api-action-mailboxstatus">MailboxStatus</a>: Check Mailbox <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Monitor" href="https://www.voip-info.org/asterisk-manager-api-action-monitor">Monitor</a>: Monitor a channel <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Originate" href="https://www.voip-info.org/asterisk-manager-api-action-originate">Originate</a>: Originate Call <strong>(privilege: call,all)</strong> NOTE: starting from 1.6: originate,all</li>
+<li><a title="Asterisk Manager API Action ParkedCalls" href="https://www.voip-info.org/asterisk-manager-api-action-parkedcalls">ParkedCalls</a>: List parked calls</li>
+<li><a title="Asterisk Manager API Action Ping" href="https://www.voip-info.org/asterisk-manager-api-action-ping">Ping</a>: Ping</li>
+<li><a title="Asterisk Manager API Action QueueAdd" href="https://www.voip-info.org/asterisk-manager-api-action-queueadd">QueueAdd</a>: Queues <strong>(privilege: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action QueueRemove" href="https://www.voip-info.org/asterisk-manager-api-action-queueremove">QueueRemove</a>: Queues <strong>(privilege: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action Queues" href="https://www.voip-info.org/asterisk-manager-api-action-queues">Queues</a>: Queues</li>
+<li><a title="Asterisk Manager API Action QueueStatus" href="https://www.voip-info.org/asterisk-manager-api-action-queuestatus">QueueStatus</a>: Queue Status</li>
+<li><a title="Asterisk Manager API Action Redirect" href="https://www.voip-info.org/asterisk-manager-api-action-redirect">Redirect</a>: Redirect <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action SetCDRUserField" href="https://www.voip-info.org/asterisk-manager-api-action-setcdruserfield">SetCDRUserField</a>: Set the CDR UserField <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action SetVar" href="https://www.voip-info.org/asterisk-manager-api-action-setvar">SetVar</a>: Set Channel Variable <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action SIPpeers" href="https://www.voip-info.org/asterisk-manager-api-action-sippeers">SIPpeers</a>: List SIP Peers (chan_sip2 only. Not available in chan_sip as of 9/20/2004) <strong>(privilege: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action Status" href="https://www.voip-info.org/asterisk-manager-api-action-status">Status</a>: Status <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action StopMonitor" href="https://www.voip-info.org/asterisk-manager-api-action-stopmonitor">StopMonitor</a>: Stop monitoring a channel <strong>(privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action ZapDialOffhook" href="https://www.voip-info.org/asterisk-manager-api-action-zapdialoffhook">ZapDialOffhook</a>: Dial over Zap channel while offhook</li>
+<li><a title="Asterisk Manager API Action ZapDNDoff" href="https://www.voip-info.org/asterisk-manager-api-action-zapdndoff">ZapDNDoff</a>: Toggle Zap channel Do Not Disturb status OFF</li>
+<li><a title="Asterisk Manager API Action ZapDNDon" href="https://www.voip-info.org/asterisk-manager-api-action-zapdndon">ZapDNDon</a>: Toggle Zap channel Do Not Disturb status ON</li>
+<li><a title="Asterisk Manager API Action ZapHangup" href="https://www.voip-info.org/asterisk-manager-api-action-zaphangup">ZapHangup</a>: Hangup Zap Channel</li>
+<li><a title="Asterisk Manager API Action ZapTransfer" href="https://www.voip-info.org/asterisk-manager-api-action-zaptransfer">ZapTransfer</a>: Transfer Zap Channel</li>
+<li><a title="Asterisk Manager API Action ZapShowChannels" href="https://www.voip-info.org/asterisk-manager-api-action-zapshowchannels">ZapShowChannels</a>: Show Zap Channels</li>
+</ul>
+<p>(New?) in Asterisk 1.2.1 (was “CVS HEAD”) (Taken from the output of <a title="Asterisk CLI" href="https://www.voip-info.org/asterisk-cli">Asterisk CLI</a> command <strong>show manager commands</strong>):</p>
+<ul>
+<li><a title="Asterisk Manager API AgentCallBackLogin" href="https://www.voip-info.org/asterisk-manager-api-agentcallbacklogin">AgentCallbackLogin</a>: Sets an agent as logged in by callback <strong>(Privilege: agent,all)</strong></li>
+<li><a title="Asterisk Manager API AgentLogoff" href="https://www.voip-info.org/asterisk-manager-api-agentlogoff">AgentLogoff</a>: Sets an agent as no longer logged in <strong>(Privilege: agent,all)</strong></li>
+<li>Agents: Lists agents and their status <strong>(Privilege: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action DBGet" href="https://www.voip-info.org/asterisk-manager-api-action-dbget">DBGet</a>: Get DB Entry <strong>(Privilege: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action DBPut" href="https://www.voip-info.org/asterisk-manager-api-action-dbput">DBPut</a>: Put DB Entry <strong>(Privilege: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action QueuePause" href="https://www.voip-info.org/asterisk-manager-api-action-queuepause">QueuePause</a>: Makes a queue member temporarily unavailable <strong>(Privilege: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action SIPshowPeer" href="https://www.voip-info.org/asterisk-manager-api-action-sipshowpeer">SIPshowPeer</a>: Show SIP peer (text format) <strong>(Privilege: system,all)</strong></li>
+</ul>
+<p>New in Asterisk 1.4.0</p>
+<ul>
+<li><a title="Asterisk Manager API Action GetConfig" href="https://www.voip-info.org/asterisk-manager-api-action-getconfig">GetConfig</a>: Display a configuration file, used mainly by <a class="external" href="https://www.voip-info.org/aynchronous-javascript-asterisk-manager-ajam">AJAM</a>/Asterisk-gui. <strong>(Privilege: config,all)</strong></li>
+<li><a title="Asterisk Manager API Action PlayDTMF" href="https://www.voip-info.org/asterisk-manager-api-action-playdtmf">PlayDTMF</a>: Play DTMF signal on a specific channel. <strong>(Privilege: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action UpdateConfig" href="https://www.voip-info.org/asterisk-manager-api-action-updateconfig">UpdateConfig</a>: Updates a configuration file, used mainly by <a class="external" href="https://www.voip-info.org/aynchronous-javascript-asterisk-manager-ajam">AJAM</a>/Asterisk-gui. <strong>(Privilege: config,all)</strong></li>
+</ul>
+<p>Available in Asterisk 1.6.0</p>
+<ul>
+<li><a title="Asterisk Manager API Action AbsoluteTimeout" href="https://www.voip-info.org/asterisk-manager-api-action-absolutetimeout">AbsoluteTimeout</a>: Set Absolute Timeout <strong>(Priv: system,call,all)</strong></li>
+<li>AgentLogoff: Sets an agent as no longer logged in <strong>(Priv: agent,all)</strong></li>
+<li>Agents: Lists agents and their status <strong>(Priv: agent,all)</strong></li>
+<li>AGI: Add an AGI command to execute by Async AGI <strong>(Priv: call,all)</strong></li>
+<li>Bridge: Bridge two channels already in the PBX <strong>(Priv: call,all)</strong></li>
+<li>Challenge: Generate Challenge for MD5 Auth <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action ChangeMonitor" href="https://www.voip-info.org/asterisk-manager-api-action-changemonitor">ChangeMonitor</a>: Change monitoring filename of a channel <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Command" href="https://www.voip-info.org/asterisk-manager-api-action-command">Command</a>: Execute Asterisk CLI Command <strong>(Priv: command,all)</strong></li>
+<li>CoreSettings: Show PBX core settings (version etc) <strong>(Priv: system,reporting,all)</strong></li>
+<li>CoreShowChannels: List currently active channels <strong>(Priv: system,reporting,all)</strong></li>
+<li>CoreStatus: Show PBX core status variables <strong>(Priv: system,reporting,all)</strong></li>
+<li>CreateConfig: Creates an empty file in the configuration directory <strong>(Priv: config,all)</strong></li>
+<li>DAHDIDialOffhook: Dial over DAHDI channel while offhook <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDIDNDoff: Toggle DAHDI channel Do Not Disturb status OFF <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDIDNDon: Toggle DAHDI channel Do Not Disturb status ON <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDIHangup: Hangup DAHDI Channel <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDIRestart: Fully Restart DAHDI channels (terminates calls) <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDIShowChannels: Show status dahdi channels <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DAHDITransfer: Transfer DAHDI Channel <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>DBDel: Delete DB Entry <strong>(Priv: system,all)</strong></li>
+<li>DBDelTree: Delete DB Tree <strong>(Priv: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action DBGet" href="https://www.voip-info.org/asterisk-manager-api-action-dbget">DBGet</a>: Get DB Entry <strong>(Priv: system,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action DBPut" href="https://www.voip-info.org/asterisk-manager-api-action-dbput">DBPut</a>: Put DB Entry <strong>(Priv: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action Events" href="https://www.voip-info.org/asterisk-manager-api-action-events">Events</a>: Control Event Flow <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action ExtensionState" href="https://www.voip-info.org/asterisk-manager-api-action-extensionstate">ExtensionState</a>: Check Extension Status <strong>(Priv: call,reporting,all)</strong></li>
+<li>GetConfigJSON: Retrieve configuration (JSON format) <strong>(Priv: system,config,all)</strong></li>
+<li><a title="Asterisk Manager API Action GetConfig" href="https://www.voip-info.org/asterisk-manager-api-action-getconfig">GetConfig</a>: Retrieve configuration <strong>(Priv: system,config,all)</strong></li>
+<li><a title="Asterisk Manager API Action GetVar" href="https://www.voip-info.org/asterisk-manager-api-action-getvar">Asterisk Manager API Action GetVar</a>: Gets a Channel Variable <strong>(Priv: call,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action Hangup" href="https://www.voip-info.org/asterisk-manager-api-action-hangup">Hangup</a>: Hangup Channel <strong>(Priv: system,call,all)</strong></li>
+<li>IAXnetstats: Show IAX Netstats <strong>(Priv: system,reporting,all)</strong></li>
+<li>IAXpeerlist: List IAX Peers <strong>(Priv: system,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action IAXpeers" href="https://www.voip-info.org/asterisk-manager-api-action-iaxpeers">IAXpeers</a>: List IAX Peers <strong>(Priv: system,reporting,all)</strong></li>
+<li>ListCategories: List categories in configuration file <strong>(Priv: config,all)</strong></li>
+<li><a title="Asterisk Manager API Action ListCommands" href="https://www.voip-info.org/asterisk-manager-api-action-listcommands">ListCommands</a>: List available manager commands <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action Login" href="https://www.voip-info.org/asterisk-manager-api-action-login">Login</a>: Login Manager <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action Logoff" href="https://www.voip-info.org/asterisk-manager-api-action-logoff">Logoff</a>: Logoff Manager <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action MailboxCount" href="https://www.voip-info.org/asterisk-manager-api-action-mailboxcount">MailboxCount</a>: Check Mailbox Message Count <strong>(Priv: call,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action MailboxStatus" href="https://www.voip-info.org/asterisk-manager-api-action-mailboxstatus">MailboxStatus</a>: Check Mailbox <strong>(Priv: call,reporting,all)</strong></li>
+<li>MeetmeMute: Mute a Meetme user <strong>(Priv: call,all)</strong></li>
+<li>MeetmeUnmute: Unmute a Meetme user <strong>(Priv: call,all)</strong></li>
+<li>ModuleCheck: Check if module is loaded <strong>(Priv: system,all)</strong></li>
+<li>ModuleLoad: Module management <strong>(Priv: system,all)</strong></li>
+<li><a title="Asterisk Manager API Action Monitor" href="https://www.voip-info.org/asterisk-manager-api-action-monitor">Monitor</a>: Monitor a channel <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Originate" href="https://www.voip-info.org/asterisk-manager-api-action-originate">Originate</a>: Originate Call <strong>(Priv: originate,all)</strong></li>
+<li><a title="Asterisk Manager API Action ParkedCalls" href="https://www.voip-info.org/asterisk-manager-api-action-parkedcalls">ParkedCalls</a>: List parked calls <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>Park: Park a channel <strong>(Priv: call,all)</strong></li>
+<li>PauseMonitor: Pause monitoring of a channel <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Ping" href="https://www.voip-info.org/asterisk-manager-api-action-ping">Ping</a>: Keepalive command <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action PlayDTMF" href="https://www.voip-info.org/asterisk-manager-api-action-playdtmf">PlayDTMF</a>: Play DTMF signal on a specific channel. <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action QueueAdd" href="https://www.voip-info.org/asterisk-manager-api-action-queueadd">QueueAdd</a>: Add interface to queue. <strong>(Priv: agent,all)</strong></li>
+<li>QueueLog: Adds custom entry in queue_log <strong>(Priv: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action QueuePause" href="https://www.voip-info.org/asterisk-manager-api-action-queuepause">QueuePause</a>: Makes a queue member temporarily unavailable <strong>(Priv: agent,all)</strong></li>
+<li>QueuePenalty: Set the penalty for a queue member <strong>(Priv: agent,all)</strong></li>
+<li><a title="Asterisk Manager API Action QueueRemove" href="https://www.voip-info.org/asterisk-manager-api-action-queueremove">QueueRemove</a>: Remove interface from queue. <strong>(Priv: agent,all)</strong></li>
+<li>QueueRule: Queue Rules <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action Queues" href="https://www.voip-info.org/asterisk-manager-api-action-queues">Queues</a>: Queues <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action QueueStatus" href="https://www.voip-info.org/asterisk-manager-api-action-queuestatus">QueueStatus</a>: Queue Status <strong>(Priv: &lt;none&gt;)</strong></li>
+<li><a title="Asterisk Manager API Action QueueSummary" href="https://www.voip-info.org/asterisk-manager-api-action-queuesummary">QueueSummary</a>: Queue Status <strong>(Priv: &lt;none&gt;)</strong></li>
+<li>Redirect: Redirect (transfer) a call <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action Reload" href="https://www.voip-info.org/asterisk-manager-api-action-reload">Reload</a>: Send a reload event <strong>(Priv: system,config,all)</strong></li>
+<li>SendText: Send text message to channel <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action SetVar" href="https://www.voip-info.org/asterisk-manager-api-action-setvar">Asterisk Manager API Action SetVar</a>: Set Channel Variable <strong>(Priv: call,all)</strong></li>
+<li>ShowDialPlan: List dialplan <strong>(Priv: config,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action SIPpeers" href="https://www.voip-info.org/asterisk-manager-api-action-sippeers">SIPpeers</a>: List SIP peers (text format) <strong>(Priv: system,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action SIPshowPeer" href="https://www.voip-info.org/asterisk-manager-api-action-sipshowpeer">Asterisk Manager API Action SIPshowPeer</a>: Show SIP peer (text format) <strong>(Priv: system,reporting,all)</strong></li>
+<li>SIPshowregistry: Show SIP registrations (text format) <strong>(Priv: system,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action Status" href="https://www.voip-info.org/asterisk-manager-api-action-status">Status</a>: Lists channel status <strong>(Priv: system,call,reporting,all)</strong></li>
+<li><a title="Asterisk Manager API Action StopMonitor" href="https://www.voip-info.org/asterisk-manager-api-action-stopmonitor">StopMonitor</a>: Stop monitoring a channel <strong>(Priv: call,all)</strong></li>
+<li>UnpauseMonitor: Unpause monitoring of a channel <strong>(Priv: call,all)</strong></li>
+<li><a title="Asterisk Manager API Action UpdateConfig" href="https://www.voip-info.org/asterisk-manager-api-action-updateconfig">UpdateConfig</a>: Update basic configuration <strong>(Priv: config,all)</strong></li>
+<li>UserEvent: Send an arbitrary event <strong>(Priv: user,all)</strong></li>
+<li>VoicemailUsersList: List All Voicemail User Information <strong>(Priv: call,reporting,all)</strong></li>
+<li>WaitEvent: Wait for an event to occur <strong>(Priv: &lt;none&gt;)</strong></li>
+</ul>
+<h2 id="AsteriskEvents">Asterisk Events</h2>
+<p>These are listed on a separate page: <a title="asterisk manager events" href="https://www.voip-info.org/asterisk-manager-events">asterisk manager events</a>.</p>
+<h2 id="ManagerExamples">Manager Examples</h2>
+<p>These are listed on a separate page also: <a title="Asterisk manager Examples" href="https://www.voip-info.org/asterisk-manager-examples">Asterisk manager Examples</a>.</p>
+<h2 id="Authorizationforvariousclasses">Authorization for various classes</h2>
+<p>Read authorization permits you to receive asynchronous events, in general.<br>
+Write authorization permits you to send commands and get back responses. The<br>
+following classes exist:</p>
+<ul>
+<li>system – General information about the system and ability to run system management commands, such as Shutdown, Restart, and Reload.</li>
+<li>call – Information about channels and ability to set information in a running channel.</li>
+<li>log – Logging information. Read-only.</li>
+<li>verbose – Verbose information. Read-only.</li>
+<li>agent – Information about queues and agents and ability to add queue members to a queue.</li>
+<li>user – Permission to send and receive UserEvent.</li>
+<li>config – Ability to read and write configuration files.</li>
+<li>command – Permission to run CLI commands. Write-only.</li>
+<li>dtmf – Receive DTMF events. Read-only.</li>
+<li>reporting – Ability to get information about the system.</li>
+<li>cdr – Output of cdr_manager, if loaded. Read-only.</li>
+<li>dialplan – Receive NewExten and VarSet events. Read-only.</li>
+<li>originate – Permission to originate new calls. Write-only.</li>
+</ul>
+<h2 id="Caveat">Caveat</h2>
+<p>We’re sorry, but if you do a <strong>show applications</strong> on the console, you will see the command to view connected managers is <strong>show manager connect</strong>, but the correct command is <strong>show manager connected</strong>. Please make a note of it.</p>
+<h1 id="Seealso">See also</h1>
+<ul>
+<li><a title="AMIConnector .NET Library" href="https://www.voip-info.org/amiconnector-net-library">AMIConnector .NET Library</a> A library for fast development of Asterisk Applications under Visual Basic &amp; Visual NET</li>
+<li><a class="external" href="http://teledata.qc.ca/AMIgo">AMIgo for .NET</a> AMIgo offers an extensive set of visual controls which supports drag and drop and offers context menus to display and interact with extensions / trunks, active channels, active calls, queues, queues members, queues calls, agents, conferences and conferences users. Build a full featured Asterisk Control Panel with drag and drop support in no time, using Visual Studio and C# or Visual Basic. Also include .config and dialplan editor, command panel, site manager and more.</li>
+<li><a class="external" href="https://advancedcodingconcepts.blogspot.com/2011/02/asterisk-manager-interface-c.html">AMIflex</a> C++ source code allows you to specify one or multiple AMI servers, installing event handlers on to these servers – currently comes with event handlers to build a device and channel list. This is purposely a minimal design, to allow others to build upon it and save time in their custom applications.</li>
+<li><a title="Asterisk auto-dial out" href="https://www.voip-info.org/asterisk-auto-dial-out">Asterisk auto-dial out</a></li>
+<li><a class="external" href="https://sourceforge.net/projects/astchannelslive/">Asterisk Channels Live</a> is a windows Programm, which we can see all Asterisk channels On RealTime with windows Forms,written in C# .</li>
+<li><a title="Asterisk cmd UserEvent" href="https://www.voip-info.org/asterisk-cmd-userevent">Asterisk cmd UserEvent</a>: Send a user-defined event to the manager API</li>
+<li><a title="Asterisk config manager.conf" href="https://www.voip-info.org/asterisk-config-managerconf">Asterisk config manager.conf</a></li>
+<li><a title="asterisk manager events" href="https://www.voip-info.org/asterisk-manager-events">asterisk manager events</a></li>
+<li><a title="Asterisk manager Examples" href="https://www.voip-info.org/asterisk-manager-examples">Asterisk manager Examples</a></li>
+<li><a title="Asterisk manager experience" href="https://www.voip-info.org/asterisk-manager-experience">Asterisk manager experience</a> by mattf</li>
+<li><a class="external" href="http://www.fop2.com/">FOP2</a> – The first switchboard for Asterisk just getting better! Free for 15 buttons.</li>
+<li>PAGI and PAMI (for PHP, clean, modular, easy, OOP compatible interfaces and clients for asterisk manager and agi): <a class="external" href="https://github.com/marcelog/PAMI">http://github.com/marcelog/PAMI</a> – <a class="external" href="https://github.com/marcelog/PAGI">http://github.com/marcelog/PAGI</a></li>
+<li><a title="Asterisk Manager Proxy" href="https://www.voip-info.org/asterisk-manager-proxy">Asterisk Manager Proxy</a>: With SSL and HTTPS support for securing manager API communication</li>
+<li><a class="external" href="http://www.straw-dogs.co.uk/03/15/asterisk-manager-api-php/">Asterisk PHP API</a> (PEAR proposed) by <a class="external" href="http://www.straw-dogs.co.uk/03/15/asterisk-manager-api-php/">Straw Dogs</a></li>
+<li><a title="Asterisk-java" href="https://www.voip-info.org/asterisk-java">Asterisk-java</a></li>
+<li><a class="external" href="http://search.cpan.org/search?query=asterisk::ami&amp;mode=all">CPAN: Asterisk::AMI</a> – Simple interface for accessing the asterisk manager API. It has built in functions for common tasks (such as retrieving the asterisk db) as well as a powerful Event and Action callback implementation that supports several event loops.</li>
+<li><a class="external" href="http://www.dialapplet.com/index.php">DialApplet</a>, Windows, Mac &amp; Linux Desktop</li>
+<li>French Speaking Manager examples with PHP Jeremy Salmon</li>
+<li><a title="LibgAMI" href="https://www.voip-info.org/libgami">LibgAMI</a> Cross-platform library for connections to the asterisk manager interface. Fast Access to AMI using a framework valid for multiple languages and systems.</li>
+<li><a title="OrderlyCalls" href="https://www.voip-info.org/orderlycalls">OrderlyCalls</a> (successor to <a title="JAGIServer" href="https://www.voip-info.org/jagiserver">JAGIServer</a>) offers full support for <a title="Asterisk FastAGI" href="https://www.voip-info.org/asterisk-fastagi">FastAGI</a> and Manager in an easy-to-use Named Service environment. Includes Web Deployer for developing integrated VOIP-HTML applications.</li>
+<li><a class="external" href="http://bestof.nerdvittles.com/applications/phonegenie/">Phone Genie for Asterisk</a> Web-Based Controller for Asterisk Manager API. Works fine with Asterisk 1.2.x.</li>
+<li><a class="external" href="http://www.rondee.com/static/code.php">PHP Code</a> for web-based streaming of call audio from a regular call or a <a class="external" href="http://www.rondee.com/">conference call</a>.</li>
+<li>Python AMI library <a class="external" href="http://starpy.sf.net/"> Starpy</a> <a class="external" href="https://godsongera.blogspot.com/2008/10/starpy-100a13-released-asterisk.html"> Starpy, whats new</a></li>
+<li><a class="external" href="http://www.scopdev.com/">ScopDEV</a> The ScopServ Developer Kit is a package of libraries and samples to allow developer to add ScopServ Telephony system (ScopTel) integration into their software using Asterisk Manager Interface.</li>
+<li><a class="external" href="https://github.com/Motiejus/Asterisk-perl-AMI">Simple but powerful AMI processing script in Perl</a>. Quickstart for AMI logging and callbacks may be found here.</li>
+<li>The free Asterisk IAX2 and Manager API and AGI ActiveX control (know as IAXOCX and MVBCTI OCX)</li>
+<li><a class="external" href="https://github.com/frutik/asterisk-ami-pgsql">SQL wrapper for some AMI commands, postgresql based</a></li>
+<li><a title="WombatDialer" href="https://www.voip-info.org/wombatdialer">WombatDialer</a> can be used to hide away the complexities of dealing with AGI calls directly when creating dialplan-scripted solutions</li>
+<li><a class="external" href="https://github.com/alexforster/AmiClient">AmiClient</a> &nbsp;– &nbsp;A modern .NET Standard client library for interacting with the AMI protocol via C#. Small, fast, and thread-safe, designed to be used with async/await and Reactive Extensions (Rx). Apache 2 license. <a class="external" href="https://www.nuget.org/packages/AmiClient">Package available on NuGet.</a></li>
+</ul>
+<hr>
+<ul>
+<li><strong><a title="Asterisk" href="https://www.voip-info.org/asterisk">Asterisk</a></strong> | <a title="Asterisk FAQ" href="https://www.voip-info.org/asterisk-faq">FAQ</a> | <a title="Asterisk - documentation of application commands" href="https://www.voip-info.org/asterisk-documentation-of-application-commands">Applications</a> | <a title="Asterisk tips and tricks" href="https://www.voip-info.org/asterisk-tips-and-tricks">Tips &amp; Tricks</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<span class="entry-tags">
+</span>
+</article>
+</main>
+</div>
+<aside id="secondary" class="widget-area sidebar">
+<div id="custom_html-8" class="widget_text widget widget_custom_html"><h3 class="widget-title"><span>Site Sponsor</span></h3><div class="textwidget custom-html-widget"><center><img src="./Asterisk manager API - VoIP-Info_files/3CX_gray_logo.webp" alt="Site Sponsor"></center></div></div><div id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><form id="searchform" role="search" method="get" action="https://www.voip-info.org/search-results/">
+<label>
+<span class="screen-reader-text">Search for:</span>
+<input type="search" class="search-input" placeholder="Search..." value="" name="q" title="Search for:" style="width:100%;">
+<button type="submit" class="search-submit" style="width:100%;margin-top:5px;">Search</button>
+</label>
+</form></div></div><div id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><style>
+#sidebar_3cx{clear:both;display:block;text-align:center}a.sidebar_3cx_btn{display:inline-block;padding:5px;background-color:#0596d4;text-align:center;color:#FFF;border-radius:3px;text-decoration:none;-moz-transition:all .2s ease-in;-o-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;transition:all .2s ease-in;width:100%}#sidebar_3cx_oneyearfree{text-align:right;font-weight:700;margin-right:4px;margin-top:5px}ul#sidebar_3cx_list li{list-style:none;border-bottom:1px solid #eee;padding-bottom:5px;margin-bottom:5px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAIAAACpTQvdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkI1Rjg5QTQ4NTMyRDExRTY5MTA4OTQ4OEMzMTdDRjE0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkI1Rjg5QTQ5NTMyRDExRTY5MTA4OTQ4OEMzMTdDRjE0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjVGODlBNDY1MzJEMTFFNjkxMDg5NDg4QzMxN0NGMTQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QjVGODlBNDc1MzJEMTFFNjkxMDg5NDg4QzMxN0NGMTQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4P1wg6AAABEUlEQVR42mL8//8/AymAiaCKP//+KS260XLqJVEa/v77H7bj8ZOvf1fe/dx//hVQhBGPk4CqQ3c82vLwC4QrxsH0JFETasONt9/2P/qIrPrf///xex7DVdtKct2JVYM66eyLL/YbH0XseT73yhu46sQ9j1fd/QzhGotybPGW42BhhjqJe+a13/9ADhNkZ55mKx6kIpiy7/HiW5/gqvf4yXOzsUC4IA0XXn0N3fX04effECFBdqb3P/9B2AbC7PsDFOCqEZ4+9/Jr+G6EHgjQFmI/4C/Pz8GKJR6MxLmXOEvJ87LiV40SD+aSPHPsJSB6VPnZ9vphUQ0C/1HBoccfuWdcffnl538cgJH6aQkNAAQYACKAo3UWc/5OAAAAAElFTkSuQmCC);padding-left:25px;background-position-y: 5px;}
+</style>
+<h2 class="widget-title">
+<span style="line-height:20px!important;padding-bottom:8px;text-align:center;width:100%;">
+3CX PBX - FREE<br>Linux / Win / Cloud</span>
+</h2>
+<ul id="sidebar_3cx_list">
+<img src="./Asterisk manager API - VoIP-Info_files/3cx_ad_image.webp" width="100%" style="margin-bottom:7px;">
+<li>Run <a href="https://www.3cx.com/phone-system/" target="_blank" rel="noopener noreferrer">on-premise</a> on Linux / Windows / Appliance</li>
+<li>Or in YOUR <a href="https://www.3cx.com/phone-system/free-pbx-cloud/" target="_blank" rel="noopener noreferrer">cloud</a> - Google, Amazon, Azure</li>
+<li>Integrated <b>iOS</b> &amp; <b>Android apps</b> </li>
+<li><b>Zero admin</b> and <b>bulletproof security</b> </li>
+<li>Brand new <b>web client</b> with <b>integrated web conferencing</b> </li>
+<li><b>ClicktoCall</b> from any CRM </li>
+<li><a href="https://www.3cx.com/phone-system/upgrade/" target="_blank" rel="noopener noreferrer">and many more</a> </li>
+</ul>
+<div id="sidebar_3cx">
+<a href="https://www.3cx.com/phone-system/download-phone-system/?src=voipinfo" class="sidebar_3cx_btn" target="_blank" rel="noopener noreferrer">Get 3CX</a>
+</div></div></div><div id="nav_menu-4" class="widget widget_nav_menu"><h3 class="widget-title"><span>Quick Links</span></h3><div class="menu-sidebar-container"><ul id="menu-sidebar" class="menu"><li id="menu-item-71002" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71002"><a href="https://www.voip-info.org/mobile-voip/">Mobile VoIP</a></li>
+<li id="menu-item-71003" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71003"><a href="https://www.voip-info.org/voip-service-providers-business/">Business VoIP solutions</a></li>
+<li id="menu-item-71004" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71004"><a href="https://www.voip-info.org/hosted-voip/">Hosted VoIP solutions</a></li>
+<li id="menu-item-78993" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-78993"><a href="https://www.voip-info.org/asterisk-download/">Asterisk PBX download</a></li>
+<li id="menu-item-79810" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-79810"><a href="https://www.voip-info.org/open-source-voip-software/">Open Source VOIP Software</a></li>
+</ul></div></div><div id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><a href="https://www.3cx.com/partners/?utm_source=voip-info&amp;utm_campaign=voip-info%20partners" target="_blank" rel="noopener noreferrer"><img src="./Asterisk manager API - VoIP-Info_files/3cx_ad_sidebar_partner.webp" alt="Become a 3CX Partner"></a></div></div></aside>
+</div>
+<div id="voip-info-3cx-footer">
+<div id="voip-info-3cx-footer-outer" class="anim">
+<div id="voip-info-3cx-footer-left-box" class="anim"> <img src="./Asterisk manager API - VoIP-Info_files/3cx-cta-1.png" alt="3CX - Take Control of your PBX."> </div>
+<div id="voip-info-3cx-footer-boxes" class="anim">
+<div id="voip-info-3cx-footer-box-1" class="cx-footer-box anim"> <img src="./Asterisk manager API - VoIP-Info_files/3cx-cta-icon-1.webp" alt="3CX - Easy to Install &amp; Manage" style="margin-top:5px;">
+<div class="cx-footer-box-text"> <strong>Easy to Install &amp; Manage</strong><br>
+On Premise on Windows or Linux<br>
+Cloud: Your Google, Amazon, Azure</div>
+</div>
+<div id="voip-info-3cx-footer-box-2" class="cx-footer-box anim"> <img src="./Asterisk manager API - VoIP-Info_files/3cx-cta-icon-2.webp" alt="3CX - Cut Costs – Save up to 80% per year">
+<div class="cx-footer-box-text"> <strong>Cut Costs - Save up to 80% per year</strong><br>
+No per extension pricing<br>
+One price for unlimited users </div>
+</div>
+<div id="voip-info-3cx-footer-box-3" class="cx-footer-box anim"> <img src="./Asterisk manager API - VoIP-Info_files/3cx-cta-icon-3.webp" alt="3CX - Open Platform - Freedom of choice">
+<div class="cx-footer-box-text"> <strong>Open Platform - Freedom of choice</strong><br>
+Choose your own SIP Trunk<br>
+Choose your own hardware </div>
+</div>
+<div id="voip-info-3cx-footer-btn-area" class="anim">Free for Unlimited users!
+<a href="https://www.3cx.com/phone-system/download-phone-system/?src=voipinfo" target="_blank" class="anim" id="cta-btn"> Get it Now.</a>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<footer id="colophon" class="site-footer">
+<div class="footer-columns clear">
+<div class="container clear">
+<div class="footer-column footer-column-1">
+<div id="nav_menu-5" class="widget footer-widget widget_nav_menu"><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-78909" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78909"><a href="https://www.voip-info.org/call-center-software/">Call Center Software</a></li>
+<li id="menu-item-78910" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78910"><a href="https://www.voip-info.org/hosted-pbx/">Hosted PBX</a></li>
+<li id="menu-item-78908" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78908"><a href="https://www.voip-info.org/virtual-pbx-providers/">Virtual PBX</a></li>
+<li id="menu-item-78979" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78979"><a href="https://www.voip-info.org/pbx/">PBX Phone System</a></li>
+<li id="menu-item-78907" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78907"><a href="https://www.voip-info.org/asterisk/">Asterisk</a></li>
+</ul></div></div> </div>
+<div class="footer-column footer-column-2">
+<div id="nav_menu-3" class="widget footer-widget widget_nav_menu"><div class="menu-footer-menu-2-container"><ul id="menu-footer-menu-2" class="menu"><li id="menu-item-78902" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78902"><a href="https://www.voip-info.org/3cx/">3CX</a></li>
+<li id="menu-item-78906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78906"><a href="https://www.voip-info.org/pbx/">PBX Phone System</a></li>
+<li id="menu-item-78905" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78905"><a href="https://www.voip-info.org/voip-hardware/">VoIP Hardware</a></li>
+<li id="menu-item-78903" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78903"><a href="https://www.voip-info.org/asterisk-fax/">VoIP Fax</a></li>
+<li id="menu-item-78904" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-78904"><a href="https://www.voip-info.org/session-border-controller/">SBC / Softswitch</a></li>
+</ul></div></div> </div>
+<div class="footer-column footer-column-3">
+<div id="custom_html-3" class="widget_text widget footer-widget widget_custom_html"><div class="textwidget custom-html-widget">Voip-info.org started in Sept. 2003. All product names, trademarks and registered trademarks are property of their respective owners. All company, product and service names used in this website are for identification purposes only, and do not imply endorsement.</div></div> </div>
+</div>
+</div>
+<div id="site-bottom" class="container clear">
+<div id="footer_copyright_social">© 2003-2019 VOIP-Info.org LLC
+<a href="https://www.facebook.com/Voip.Info/" target="_blank"><img src="./Asterisk manager API - VoIP-Info_files/facebook_icon.webp" style="vertical-align:middle;margin-left:15px;"></a> <a href="https://twitter.com/Voip_Info" target="_blank"><img src="./Asterisk manager API - VoIP-Info_files/twitter_icon.png" style="vertical-align:middle;"></a>
+</div>
+</div>
+</footer>
+</div>
+<style>#cookie-notice{font-size:14px;position:fixed;bottom:0;background:rgba(0,0,0,.8);color:#FFF;text-align:center;display:none;width:100%;padding:5px;z-index:999}#accept-cookie{display:inline-block;background-color:#06486e;color:#FFF;padding:4px 10px;cursor:pointer;margin-left:10px}#cookie-notice a{color:#17a4f5;}</style>
+<div id="cookie-notice" style="display: block;"> We use cookies to improve your experience on our website. By continuing you are giving consent to <a href="https://www.voip-info.org/privacy-policy/#cookieinfo" target="_blank">cookies being used.</a>
+<div id="accept-cookie">OK</div>
+</div>
+<script type="text/javascript">
+
+	(function($){ //Search ~ Menu
+
+	    $(document).ready(function(){
+
+	        "use strict"; 
+
+			if (document.cookie.indexOf('cookie-consent=') < 0) { $("#cookie-notice").css("display","block");}$("#accept-cookie").click(function(){document.cookie = "cookie-consent=given; expires=Fri, 31 Dec 2025 23:59:59 GMT;path=/";$("#cookie-notice").hide();});
+			
+			$('.search-icon > .genericon-search').click(function(){
+			    $('.header-search').css('display', 'block');
+			    $('.search-icon > .genericon-search').toggleClass('active');
+			    $('.search-icon > .genericon-close').toggleClass('active'); 
+			});
+
+			$('.search-icon > .genericon-close').click(function(){
+			    $('.header-search').css('display', 'none');
+			    $('.search-icon > .genericon-search').toggleClass('active');
+			    $('.search-icon > .genericon-close').toggleClass('active');
+			});  
+
+	    });
+
+	})(jQuery);
+
+</script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/superfish.min.js.download"></script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/jquery.slicknav.min.js.download"></script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/modernizr.min.js.download"></script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/html5shiv.min.js.download"></script>
+<script type="text/javascript" src="./Asterisk manager API - VoIP-Info_files/jquery.custom.js.download"></script>
+
+</body></html>

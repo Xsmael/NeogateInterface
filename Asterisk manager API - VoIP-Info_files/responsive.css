@@ -1,0 +1,250 @@
+@import url(assets/css/slicknav.css);
+/* Responsive CSS Style */
+
+@media only screen and (max-width: 320px) {
+	.site-content {
+		padding: 30px 10px;
+	}
+	.content-loop .thumbnail-link {
+		width: 100%;
+	}
+	.sidebar .widget_search input[type="submit"] {
+		width: 66px;
+	}
+	.sidebar .widget_search input[type="search"] {
+		width: 185px;
+	}
+/* End @media ================================================================== */ }
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	.container {
+		width: 98%;
+	}
+	#main.site-main {
+		padding: 10px;
+	}
+    .site-branding img {
+        max-height: 45px;
+		width: 135px;
+    }
+    .site-header .search-icon {
+        right: 3%;
+    }
+	.slicknav_btn {
+		margin-right: 35px;
+	}
+	.slicknav_menu .slicknav_menutxt {
+		display: none;
+	}
+	.content-loop .entry-meta .entry-author .avatar,
+	.content-loop .entry-meta .entry-category,
+	.single .entry-meta .entry-author .avatar,
+	.single .entry-meta .entry-category {
+		display: none;
+	}
+	.content-loop .thumbnail-link {
+		float: none;
+	}
+	.entry-comment-count {
+		display: none;
+	}
+	.page-title,
+	.single h1.entry-title,
+	.page h1.entry-title {
+		font-size: 24px;
+	}
+	.single .entry-related {
+		padding-bottom: 0;
+	}
+	.single .entry-related .hentry {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.single .entry-related .hentry:after {
+		display: block;
+		clear: both;
+	}
+	.single .entry-related .hentry .thumbnail-wrap {
+		float: left;
+		width: 120px;
+		height: auto;
+		line-height: 0.5;
+		margin: 0 15px 0 0;
+  }
+	.single .entry-related .hentry img,
+	.single .entry-related .hentry .wp-post-image {
+		width: 100%;
+	}
+	#comments .comment-metadata,
+	.comment-respond .comment-metadata {
+		display: none;
+	}
+	.pagination .page-numbers {
+		font-size: 12px;
+		padding: 0 8px;
+		height: 30px;
+		line-height: 28px;
+	}
+/* End @media ================================================================== */ }
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.container {
+		width: 460px;
+	}
+	.content-loop .hentry .thumbnail-link {
+		width: 160px;
+		height: auto;
+	}
+/* End @media ================================================================== */ }
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	body {
+		background: #fff;
+	}
+	.site-content {
+		padding: 3% 0;
+	}
+	#primary,
+	#recent-content {
+		border: none;
+	}
+	#recent-content {
+		padding: 0;
+	}
+	.sidebar .widget:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+	.single .entry-related .hentry {
+		width: 100%;
+		margin-right: 0;
+	}
+	.single .entry-related .hentry:after {
+		display: block;
+		clear: both;
+	}
+	.single .entry-related .hentry .thumbnail-link {
+		float: left;
+		width: 100px;
+		height: auto;
+		line-height: 0.5;
+		margin: 0 15px 0 0;
+	}
+	.single .entry-related .hentry .thumbnail-link img,
+	.single .entry-related .hentry .thumbnail-link .wp-post-image {
+		width: 100px;
+	}
+	.single .entry-related .hentry .entry-title {
+		font-size: 13px;
+	}
+	.pagination .nav-links {
+		display: block;
+		padding: 0 10px;
+		position: relative;
+	}
+	.comment-form .comment-form-author,
+	.comment-form .comment-form-email,
+	.comment-form .comment-form-url {
+		width: 100%;
+	}
+	.footer-columns .footer-column {
+		width: 95%;
+	}
+	.footer-columns .footer-column-3 {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+	#site-bottom {
+		text-align: center;
+	}
+	#site-bottom .site-info {
+		font-size: 11px;
+	}
+/* End @media ================================================================== */ }
+
+@media (min-width: 768px) {
+	.error404 #primary,
+	.single #primary,
+	.page #primary {
+		background-color: #fff;
+		position: relative;
+	}
+	
+/* End @media ================================================================== */}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.container {
+		width: 748px;
+	}
+	.footer-columns .footer-column {
+		width: 344px;
+	}
+	.footer-columns .footer-column-2,
+	.footer-columns .footer-column-3 {
+		margin-right: 0;
+	}
+	.footer-columns .footer-column-2:after,
+	.footer-columns .footer-column-3:after {
+		display: block;
+		clear: both;
+	}
+	.single .entry-related .hentry {
+		width: 336px;
+	}
+	.single .entry-related .hentry .thumbnail-wrap {
+		height: auto;
+	}
+	.single .entry-related .hentry img,
+	.single .entry-related .hentry .wp-post-image {
+		width: 100%;
+	}
+	.comment-form .comment-form-author,
+	.comment-form .comment-form-email,
+	.comment-form .comment-form-url {
+		width: 215px;
+	}
+	.sidebar .widget_social_icons ul > li {
+		width: 6%;
+	}
+/* End @media ================================================================== */ }
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+	.js #primary-nav {
+		display: none;
+	}
+	.js .slicknav_menu {
+		display: block;
+	}
+	#slick-mobile-menu {
+		display: block;
+	}
+	.container {
+		width: 95%;
+	}
+	.site-header {
+		position: relative;
+	}
+    .site-header .search-icon {
+        right: 1%;
+    }
+	#primary {
+		float: none;
+		width: 100%;
+		margin-bottom: 25px;
+	}
+	#secondary {
+		float: none;
+		width: 100%;
+		}
+	#site-bottom {
+		text-align: center;
+	}
+	#site-bottom .site-info {
+		margin-bottom: 5px;
+	}
+/* End @media ================================================================== */ }

@@ -1,0 +1,50 @@
+{
+  "_from": "neogateinterface",
+  "_id": "neogateinterface@1.0.11",
+  "_inBundle": false,
+  "_integrity": "sha512-FQqTcCBQlHlO00YFA/REJ0e6oSx/5Rl70DwyxkBchcC6Rku/WPd3Qt0L7zVcHwvHx9euurIn5eQ+dp4P+w0OtQ==",
+  "_location": "/neogateinterface",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "neogateinterface",
+    "name": "neogateinterface",
+    "escapedName": "neogateinterface",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/neogateinterface/-/neogateinterface-1.0.11.tgz",
+  "_shasum": "8dec2f39aa15bf9506596afa3d1d6160bfce7835",
+  "_spec": "neogateinterface",
+  "_where": "C:\\node",
+  "author": {
+    "name": "x"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "install": "^0.12.2",
+    "mkdirp": "^0.5.1",
+    "nodejs-scanf": "^1.1.0",
+    "noogger": "^0.1.8"
+  },
+  "deprecated": false,
+  "description": "Neogate API module",
+  "devDependencies": {},
+  "license": "ISC",
+  "main": "index.js",
+  "name": "neogateinterface",
+  "repository": {
+    "type": "git",
+    "url": "n"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.12"
+}
