@@ -261,7 +261,7 @@ function generateToken() { return Math.random().toString(36).substring(2, 15) + 
 
 function detectGsmPorts(portData) {
     if(portData) {
-        if(!portData.NetworkName)
+        if(! parseInt(portData.NetworkName) )
             portData.NetworkName= portData.SIMIMSI.substring(0,5);
             
         SIMs.push( Object.assign(portData, getNMCDetails( portData.NetworkName), {"port": portToDetect} ));
