@@ -1,32 +1,36 @@
 {
-  "_from": "neogateinterface",
-  "_id": "neogateinterface@1.0.11",
+  "_args": [
+    [
+      "neogateinterface@1.0.12",
+      "C:\\node\\smsbox"
+    ]
+  ],
+  "_from": "neogateinterface@1.0.12",
+  "_id": "neogateinterface@1.0.12",
   "_inBundle": false,
-  "_integrity": "sha512-FQqTcCBQlHlO00YFA/REJ0e6oSx/5Rl70DwyxkBchcC6Rku/WPd3Qt0L7zVcHwvHx9euurIn5eQ+dp4P+w0OtQ==",
+  "_integrity": "sha512-1boip79U5UWOQ6h5GOY3S1W49aweZxf4prGl0g+yEdGYE7N6A5QUI3YLjKlrihTTJy0DQ//JjqV5mGbmOj90Rw==",
   "_location": "/neogateinterface",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "neogateinterface",
+    "raw": "neogateinterface@1.0.12",
     "name": "neogateinterface",
     "escapedName": "neogateinterface",
-    "rawSpec": "",
+    "rawSpec": "1.0.12",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "1.0.12"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/neogateinterface/-/neogateinterface-1.0.11.tgz",
+  "_resolved": "https://registry.npmjs.org/neogateinterface/-/neogateinterface-1.0.12.tgz",
   "_shasum": "8dec2f39aa15bf9506596afa3d1d6160bfce7835",
-  "_spec": "neogateinterface",
-  "_where": "C:\\node",
+  "_spec": "1.0.12",
+  "_where": "C:\\node\\smsbox",
   "author": {
     "name": "x"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "install": "^0.12.2",
     "mkdirp": "^0.5.1",
@@ -46,5 +50,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.1.0"
+  "version": "1.1.1"
 }

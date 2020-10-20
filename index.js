@@ -220,7 +220,8 @@ function processPacket(packet) {
                 time: res.Recvtime,
                 index: res.Index,
                 total: res.Total,
-                content: res.Content
+                content: res.Content,
+                smsc:res.Smsc
             });
             // log.debug(res);
         break;
@@ -261,7 +262,7 @@ function generateToken() { return Math.random().toString(36).substring(2, 15) + 
 
 function detectGsmPorts(portData) {
     if(portData) {
-        if(! parseInt(portData.NetworkName) )
+        if(!portData.NetworkName)
             portData.NetworkName= portData.SIMIMSI.substring(0,5);
             
         SIMs.push( Object.assign(portData, getNMCDetails( portData.NetworkName), {"port": portToDetect} ));
