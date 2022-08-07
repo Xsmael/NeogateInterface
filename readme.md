@@ -21,6 +21,7 @@ Feel free to file an issue.
 
     neogate.sendUSSD("*101#",3);
     neogate.sendSMS("scscsc",2);
+    // The second parameter is the port number, note that for some (weird) reasons, they label they ports starting from 2 😆. So the first port is 2 and the second is 3.
 
     neogate.events.on("ready", function () {
 
