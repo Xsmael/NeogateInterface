@@ -1,4 +1,4 @@
-# NeogateInterface is a module that allows you to seamlessly acces neogate APIs for SMS and USSD services
+# NeogateInterface is a NodeJS module that allows you to seamlessly access neogate APIs for SMS and USSD services. 
 
 ### Tested with Neogate TG 200 and TG 400  but should work with others,
 
